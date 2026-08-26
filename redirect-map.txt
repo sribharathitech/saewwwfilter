@@ -1,0 +1,23 @@
+# Legacy URL migration map
+# GitHub Pages has no server-side redirects. Matching legacy paths contain noindex meta-refresh pages.
+
+https://filter.sribharathi.com/aboutus/ -> https://filter.sribharathi.com/about/
+https://filter.sribharathi.com/aboutus/company/ -> https://filter.sribharathi.com/about/
+https://filter.sribharathi.com/aboutus/standards/ -> https://filter.sribharathi.com/about/certifications.html
+https://filter.sribharathi.com/aboutus/strength/ -> https://filter.sribharathi.com/about/
+https://filter.sribharathi.com/aboutus/values/ -> https://filter.sribharathi.com/about/
+https://filter.sribharathi.com/documentation/ -> https://filter.sribharathi.com/resources/
+https://filter.sribharathi.com/filtercartridges/ -> https://filter.sribharathi.com/filter-cartridges/
+https://filter.sribharathi.com/filtercartridges/pleated_dust_collection_filter_cartridge/ -> https://filter.sribharathi.com/filter-cartridges/dust-collection-filter-cartridges.html
+https://filter.sribharathi.com/filtercartridges/polypropylene_pleated_filter_cartridge/ -> https://filter.sribharathi.com/filter-cartridges/pp-pleated-filter-cartridges.html
+https://filter.sribharathi.com/filtercartridges/spun_bonded_filter_cartridge/ -> https://filter.sribharathi.com/filter-cartridges/spun-bonded-filter-cartridges.html
+https://filter.sribharathi.com/filtercartridges/stainless_steel_filter_cartridge/ -> https://filter.sribharathi.com/filter-cartridges/stainless-steel-filter-cartridges.html
+https://filter.sribharathi.com/filtercartridges/wound_filter_cartridge/ -> https://filter.sribharathi.com/filter-cartridges/wound-filter-cartridges.html
+https://filter.sribharathi.com/filterpads/ -> https://filter.sribharathi.com/filter-pads/
+https://filter.sribharathi.com/filterpads/carbon_filter_pad/ -> https://filter.sribharathi.com/filter-pads/activated-carbon-filter-pads.html
+https://filter.sribharathi.com/filterpads/filter_paper/ -> https://filter.sribharathi.com/filter-papers/
+https://filter.sribharathi.com/filterpads/ht_filter_pad/ -> https://filter.sribharathi.com/filter-pads/high-temperature-filter-pads.html
+https://filter.sribharathi.com/filterpads/pulp_filter_pad/ -> https://filter.sribharathi.com/filter-pads/pulp-filter-pads.html
+https://filter.sribharathi.com/filterpads/sparkler_filter_pad/ -> https://filter.sribharathi.com/filter-pads/sparkler-filter-pads.html
+https://filter.sribharathi.com/modular/ -> https://filter.sribharathi.com/lenticular-filters/
+https://filter.sribharathi.com/modular/modularfilter/ -> https://filter.sribharathi.com/lenticular-filters/

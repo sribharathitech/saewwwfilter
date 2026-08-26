@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://filter.sribharathi.com/sitemap.xml
