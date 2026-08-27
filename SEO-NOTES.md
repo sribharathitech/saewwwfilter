@@ -20,7 +20,7 @@
 ## Important internal-link paths
 
 - Gelatin filtration links to pulp pads, sparkler pads, filter papers, lenticular filters and PP pleated cartridges.
-- Activated-carbon pads link to chemical filtration, food and beverage filtration, pulp pads and PP polishing cartridges.
+- Activated carbon pads link to chemical filtration, food and beverage filtration, pulp pads and PP polishing cartridges.
 - Product hubs link to every child landing page; every child links back into relevant applications and adjacent filtration stages.
 - Quality and certification pages are linked from the homepage, about page and resources.
 
