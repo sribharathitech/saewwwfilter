@@ -12,7 +12,8 @@
 | `/filter-pads/high-temperature-filter-pads.html` | high temperature filter pads, hot oil filtration | High Temperature Filter Pads for Hot Oil \| Sri Bharathi |
 | `/filter-papers/` | filter paper manufacturer India, industrial filter papers | Industrial Filter Paper Manufacturer India \| Sri Bharathi |
 | `/filter-cartridges/` | filter cartridge manufacturer India | Filter Cartridge Manufacturer India \| Sri Bharathi |
-| Cartridge detail pages | PP pleated, spun bonded, wound, stainless steel, dust cartridges | Product-specific titles |
+| `/filter-cartridges/ptfe-membrane-filter-cartridges.html` | PTFE membrane filter cartridges | PTFE Membrane Filter Cartridge Manufacturer \| Sri Bharathi |
+| Other cartridge detail pages | PP pleated, spun bonded, wound, stainless steel, dust cartridges | Product-specific titles |
 | `/lenticular-filters/` | lenticular filters India | Lenticular Filter Manufacturer India \| Sri Bharathi |
 | `/applications/gelatin-filtration.html` | gelatin filtration, filter pads for gelatin | Gelatin Filtration & Cellulose Filter Pads \| Sri Bharathi |
 | Other application pages | pharmaceutical, chemical, food/beverage, edible-oil filtration | Application-specific titles |
