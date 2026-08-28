@@ -1,9 +1,11 @@
 # Legacy URL migration map
 # GitHub Pages has no server-side redirects. Matching legacy paths contain noindex meta-refresh pages.
 
+https://filter.sribharathi.com/about/certifications.html -> https://filter.sribharathi.com/resources/certifications.html
+https://filter.sribharathi.com/about/quality.html -> https://filter.sribharathi.com/resources/quality.html
 https://filter.sribharathi.com/aboutus/ -> https://filter.sribharathi.com/about/
 https://filter.sribharathi.com/aboutus/company/ -> https://filter.sribharathi.com/about/
-https://filter.sribharathi.com/aboutus/standards/ -> https://filter.sribharathi.com/about/certifications.html
+https://filter.sribharathi.com/aboutus/standards/ -> https://filter.sribharathi.com/resources/certifications.html
 https://filter.sribharathi.com/aboutus/strength/ -> https://filter.sribharathi.com/about/
 https://filter.sribharathi.com/aboutus/values/ -> https://filter.sribharathi.com/about/
 https://filter.sribharathi.com/documentation/ -> https://filter.sribharathi.com/resources/

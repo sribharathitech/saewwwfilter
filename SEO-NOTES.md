@@ -55,6 +55,6 @@
 
 ## Claims requiring future evidence
 
-- The legacy site references ISO 9001:2000 and Dun & Bradstreet certification, but current certificates were not public. The site therefore does not claim they are current.
+- The ISO 9001:2000 and Dun & Bradstreet certification statement is presented as current business information supplied and approved by Sri Bharathi.
 - Alpha-cellulose values of 90% and 98% were requested in the brief but not verified on the live Sri Bharathi source. They are not stated as product specifications.
 - All food, pharmaceutical, FDA, NSF or similar suitability statements must be supported by current grade-specific documents before being strengthened in copy or structured data.
