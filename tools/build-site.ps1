@@ -2,6 +2,7 @@
 
 $Root = Split-Path -Parent $PSScriptRoot
 $Base = 'https://filter.sribharathi.com'
+$SiteLastModified = '2026-08-28'
 $Orange = '#f57700'
 $HeaderTemplate = [System.IO.File]::ReadAllText((Join-Path $Root 'partials/header.html'))
 $FooterTemplate = [System.IO.File]::ReadAllText((Join-Path $Root 'partials/footer.html'))
@@ -557,8 +558,7 @@ $indexable = @(
 '/', '/about/', '/resources/quality.html', '/resources/certifications.html', '/filter-pads/', '/filter-pads/sparkler-filter-pads.html', '/filter-pads/pulp-filter-pads.html', '/filter-pads/activated-carbon-filter-pads.html', '/filter-pads/high-temperature-filter-pads.html', '/filter-papers/', '/filter-cartridges/', '/filter-cartridges/pp-pleated-filter-cartridges.html', '/filter-cartridges/ptfe-membrane-filter-cartridges.html', '/filter-cartridges/spun-bonded-filter-cartridges.html', '/filter-cartridges/wound-filter-cartridges.html', '/filter-cartridges/stainless-steel-filter-cartridges.html', '/filter-cartridges/dust-collection-filter-cartridges.html', '/lenticular-filters/', '/applications/', '/applications/gelatin-filtration.html', '/applications/pharmaceutical-filtration.html', '/applications/chemical-filtration.html', '/applications/food-beverage-filtration.html', '/applications/edible-oil-filtration.html', '/resources/', '/contact/'
 )
 $urls = ($indexable | ForEach-Object {
-    $lastmod = if ($_ -eq '/filter-cartridges/ptfe-membrane-filter-cartridges.html') { '2026-08-28' } else { '2026-08-26' }
-    "  <url><loc>$Base$_</loc><lastmod>$lastmod</lastmod></url>"
+    "  <url><loc>$Base$_</loc><lastmod>$SiteLastModified</lastmod></url>"
 }) -join "`n"
 Write-Utf8 (Join-Path $Root 'sitemap.xml') "<?xml version=`"1.0`" encoding=`"UTF-8`"?>`n<urlset xmlns=`"http://www.sitemaps.org/schemas/sitemap/0.9`">`n$urls`n</urlset>`n"
 Write-Utf8 (Join-Path $Root 'robots.txt') "User-agent: *`nAllow: /`n`nSitemap: $Base/sitemap.xml`n"
