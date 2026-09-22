@@ -1,0 +1,30 @@
+.pulp-technical h2{max-width:960px;font-size:clamp(2rem,3.6vw,3rem)}
+.pulp-technical .section-intro{max-width:800px}
+.pulp-technical-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:42px}
+.pulp-grade-card{min-width:0;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 40px rgba(37,37,37,.06)}
+.pulp-grade-heading{padding:26px 30px;background:var(--ink);color:#fff;border-top:4px solid var(--orange)}
+.pulp-grade-heading p{margin:0 0 6px;color:#ddd;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.pulp-grade-heading h3{margin:0 0 12px;font-size:2.6rem;letter-spacing:-.04em}
+.pulp-grade-heading>span{display:inline-block;border:1px solid #666;border-radius:30px;padding:5px 12px;font-size:.75rem;color:#eee}
+.pulp-grade-description{padding:25px 30px;min-height:190px}
+.pulp-grade-description p{margin:0;color:var(--charcoal);font-size:.9rem;line-height:1.65}
+.pulp-grade-description .pulp-grade-material{margin-bottom:10px;color:var(--ink);font-size:1rem;font-weight:700}
+.pulp-grade-table{overflow-x:auto;margin:0 20px 24px}
+.pulp-grade-table:focus-visible{outline:2px solid var(--orange-dark);outline-offset:3px}
+.pulp-grade-table table{min-width:460px;font-size:.82rem;font-variant-numeric:tabular-nums}
+.pulp-grade-table caption{text-align:left;padding:0 10px 12px;font-size:.75rem;color:var(--charcoal)}
+.pulp-grade-table th,.pulp-grade-table td{padding:13px 10px;vertical-align:middle}
+.pulp-grade-table thead th{background:var(--paper);color:var(--charcoal);font-size:.68rem;letter-spacing:0;text-transform:none;white-space:nowrap;border-top:1px solid var(--line)}
+.pulp-grade-table thead span{display:block;color:var(--muted);font-size:.65rem;font-weight:400}
+.pulp-grade-table tbody th{width:auto;white-space:nowrap}
+.pulp-grade-table tbody tr:nth-child(even){background:#fcfbf9}
+.pulp-table-hint{display:none}
+.pulp-technical-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:28px}
+.pulp-technical-footer p{margin:0;color:var(--charcoal);font-size:.82rem}
+.pulp-technical-footer a{font-size:.88rem;font-weight:700;white-space:nowrap;text-decoration:none}
+.pulp-technical-footer a:hover{text-decoration:underline}
+.pulp-technical-footer a:focus-visible{outline:2px solid var(--orange-dark);outline-offset:5px}
+.pulp-technical-footer a span{margin-left:8px}
+@media(max-width:1100px){.pulp-technical-grid{grid-template-columns:minmax(0,1fr)}.pulp-grade-description{min-height:0}}
+@media(max-width:650px){.pulp-technical-grid{margin-top:30px}.pulp-grade-heading{padding:24px 20px}.pulp-grade-description{padding:22px 20px}.pulp-technical-footer{align-items:flex-start;flex-direction:column;gap:14px}}
+@media(max-width:540px){.pulp-grade-table{margin:0 14px 12px}.pulp-table-hint{display:block;margin:0;padding:0 20px 20px;font-size:.72rem;color:var(--charcoal)}}

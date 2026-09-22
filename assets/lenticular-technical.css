@@ -1,0 +1,36 @@
+.lenticular-technical h2{max-width:960px;font-size:clamp(2rem,3.6vw,3rem)}
+.lenticular-technical-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:start;margin-top:42px}
+.lenticular-flow-card{margin:0;min-width:0;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 40px rgba(37,37,37,.06)}
+.lenticular-flow-heading{padding:26px 30px;background:var(--ink);color:#fff;border-top:4px solid var(--orange)}
+.lenticular-flow-heading p{margin:0 0 8px;color:#ddd;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.lenticular-flow-heading h3{margin:0 0 10px;font-size:1.8rem;letter-spacing:-.03em}
+.lenticular-flow-heading>span{font-size:.8rem;color:#ddd}
+.lenticular-flow-card svg{display:block;width:100%;height:auto;padding:12px 8px 0}
+.flow-label{font:700 12px Arial,sans-serif;letter-spacing:1px;fill:#346978}
+.flow-label:first-of-type{fill:#a64f00}
+.flow-key circle{fill:#252525}
+.flow-key-text{fill:#fff;font:700 13px Arial,sans-serif;text-anchor:middle}
+.lenticular-flow-card figcaption{display:flex;flex-wrap:wrap;gap:10px 24px;padding:18px 26px;border-top:1px solid var(--line);font-size:.75rem;color:var(--charcoal)}
+.lenticular-flow-card figcaption span{display:flex;align-items:center;gap:8px}
+.lenticular-flow-card figcaption i{display:inline-block;width:18px;height:3px}
+.feed-swatch{background:#c85f00}.filtrate-swatch{background:#346978}
+.lenticular-flow-card figcaption small{flex-basis:100%;font-size:.7rem}
+.lenticular-construction>h3{font-size:1.4rem;margin:0 0 22px;letter-spacing:-.025em}
+.lenticular-construction ol{list-style:none;margin:0;padding:0}
+.lenticular-construction li{display:flex;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+.lenticular-step{display:flex;align-items:center;justify-content:center;flex:0 0 30px;height:30px;background:#252525;color:#fff;border-radius:50%;font-weight:700;font-size:.8rem}
+.lenticular-construction h4{margin:0 0 7px;font-size:1rem}
+.lenticular-construction li p{margin:0;color:var(--charcoal);font-size:.92rem;line-height:1.6}
+.lenticular-process-note{margin:12px 0 0;padding:16px 20px;border-left:3px solid var(--orange);background:#fff;font-size:.8rem;color:var(--charcoal)}
+.lenticular-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:42px}
+.lenticular-benefits article{border-top:2px solid var(--orange);padding-top:18px}
+.lenticular-benefits h3{font-size:1.05rem;margin:0 0 12px}
+.lenticular-benefits p{font-size:.88rem;margin:0;color:var(--charcoal)}
+.lenticular-technical-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+.lenticular-technical-footer p{margin:0;font-size:.8rem;color:var(--charcoal)}
+.lenticular-technical-footer a{white-space:nowrap;font-size:.88rem;font-weight:700;text-decoration:none}
+.lenticular-technical-footer a:hover{text-decoration:underline}
+.lenticular-technical-footer a:focus-visible{outline:2px solid var(--orange-dark);outline-offset:5px}
+.lenticular-technical-footer a span{margin-left:8px}
+@media(max-width:980px){.lenticular-technical-grid{grid-template-columns:minmax(0,1fr);gap:32px}}
+@media(max-width:650px){.lenticular-technical-grid{margin-top:30px}.lenticular-flow-heading{padding:24px 20px}.lenticular-flow-card figcaption{padding:16px 20px}.lenticular-benefits{grid-template-columns:minmax(0,1fr);gap:24px;margin-top:30px}.lenticular-technical-footer{flex-direction:column;align-items:flex-start;gap:14px}}

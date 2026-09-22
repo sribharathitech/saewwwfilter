@@ -1,0 +1,32 @@
+.carbon-technical h2{max-width:920px;font-size:clamp(2rem,3.6vw,3rem)}
+.carbon-technical .section-intro{max-width:760px}
+.carbon-technical-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start;margin-top:42px}
+.carbon-technical-copy h3{font-size:1.45rem;letter-spacing:-.025em;margin:0 0 16px}
+.carbon-technical-copy>p{color:var(--charcoal);margin:0}
+.carbon-feature-list{list-style:none;padding:0;margin:28px 0 0}
+.carbon-feature-list li{position:relative;padding:19px 0 19px 25px;border-top:1px solid var(--line)}
+.carbon-feature-list li::before{content:'';position:absolute;left:0;top:29px;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.carbon-feature-list strong,.carbon-feature-list span{display:block}
+.carbon-feature-list strong{font-size:1rem;margin-bottom:4px}
+.carbon-feature-list span{font-size:.92rem;color:var(--charcoal);line-height:1.6}
+.carbon-grade-card{min-width:0;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 40px rgba(37,37,37,.06)}
+.carbon-grade-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--ink);color:#fff;padding:28px 32px;border-top:4px solid var(--orange)}
+.carbon-grade-label{margin:0 0 8px;color:#ddd;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.carbon-grade-heading h3{margin:0;font-size:2.6rem;letter-spacing:-.04em}
+.carbon-grade-tag{border:1px solid #666;border-radius:30px;padding:6px 12px;color:#eee;font-size:.7rem;line-height:1.4}
+.carbon-grade-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0;padding:12px 32px}
+.carbon-grade-values>div{padding:23px 0}
+.carbon-grade-values>div:nth-child(even){padding-left:26px;border-left:1px solid var(--line)}
+.carbon-grade-values>div:nth-child(n+3){border-top:1px solid var(--line)}
+.carbon-grade-values dt{font-size:.8rem;color:var(--charcoal);margin-bottom:6px}
+.carbon-grade-values dd{margin:0;font-size:2.25rem;font-weight:700;line-height:1.2;letter-spacing:-.04em}
+.carbon-grade-values dd span{font-size:.85rem;font-weight:400;letter-spacing:0;white-space:nowrap;color:var(--charcoal)}
+.carbon-grade-values sup{font-size:.65em}
+.carbon-grade-footer{padding:21px 32px 25px;border-top:1px solid var(--line);background:#fcfbf9}
+.carbon-grade-footer p{margin:0 0 14px;color:var(--charcoal);font-size:.8rem;line-height:1.6}
+.carbon-grade-footer a{font-size:.88rem;font-weight:700;text-decoration:none}
+.carbon-grade-footer a:hover{text-decoration:underline}
+.carbon-grade-footer a:focus-visible{outline:2px solid var(--orange-dark);outline-offset:5px}
+.carbon-grade-footer a span{margin-left:8px}
+@media(max-width:900px){.carbon-technical-grid{grid-template-columns:minmax(0,1fr);gap:30px}}
+@media(max-width:480px){.carbon-technical-grid{margin-top:30px}.carbon-grade-heading{padding:24px 20px;gap:12px}.carbon-grade-tag{max-width:112px}.carbon-grade-values{padding:8px 20px}.carbon-grade-values>div:nth-child(even){padding-left:18px}.carbon-grade-values dd{font-size:2rem}.carbon-grade-values dd span{font-size:.75rem}.carbon-grade-footer{padding:20px}}

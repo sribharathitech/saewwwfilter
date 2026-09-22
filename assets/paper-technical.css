@@ -1,0 +1,13 @@
+/* PPN layout; grade cards and tables share the pulp technical styles. */
+.paper-technical-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:start;margin-top:42px}
+.paper-technical-copy h3{margin:0 0 16px;font-size:1.45rem;letter-spacing:-.025em}
+.paper-technical-copy>p{margin:0;color:var(--charcoal)}
+.paper-feature-list{list-style:none;padding:0;margin:28px 0 0}
+.paper-feature-list li{position:relative;padding:19px 0 19px 25px;border-top:1px solid var(--line)}
+.paper-feature-list li::before{content:'';position:absolute;left:0;top:29px;width:7px;height:7px;border-radius:50%;background:var(--orange)}
+.paper-feature-list strong,.paper-feature-list span{display:block}
+.paper-feature-list strong{font-size:1rem;margin-bottom:4px}
+.paper-feature-list span{font-size:.92rem;color:var(--charcoal);line-height:1.6}
+.paper-technical .pulp-grade-table{margin-top:24px}
+@media(max-width:1100px){.paper-technical-grid{grid-template-columns:minmax(0,1fr);gap:30px}}
+@media(max-width:650px){.paper-technical-grid{margin-top:30px}}
