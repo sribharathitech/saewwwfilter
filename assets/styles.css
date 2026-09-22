@@ -72,3 +72,29 @@
 @media(max-width:650px){.home-band{padding:22px 0}.home-band .stat-band{gap:12px}.home-band .stat{padding:22px 20px}.home-band .stat::before{left:20px}}
 @media(max-width:420px){.home-band .stat-band{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.home-band .stat,.home-band .stat::before,.home-band .stat strong{transition:none}.home-band .stat:hover{transform:none}}
+
+/* Gelatin filtration process sequence. */
+.process-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;list-style:none;margin:38px 0 0;padding:0;counter-reset:step}
+.process-steps li{position:relative;display:flex;gap:20px;min-width:0;min-height:220px;padding:30px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#fff 68%,#fcfaf6);box-shadow:0 5px 18px rgba(37,37,37,.04);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.process-steps li::before{content:'';position:absolute;top:0;left:30px;width:38px;height:3px;border-radius:0 0 3px 3px;background:var(--orange);transition:width .22s ease}
+.process-step-number{display:flex;align-items:center;justify-content:center;flex:0 0 46px;height:46px;border:1px solid #f4ddc6;border-radius:13px;background:#fff4e8;color:#a34d00;font-size:.82rem;font-weight:900;line-height:1;letter-spacing:.06em;transition:background-color .22s ease,color .22s ease}
+.process-steps h3{margin:3px 0 13px;font-size:1.25rem;letter-spacing:-.025em;line-height:1.25}
+.process-steps p{margin:0;color:var(--charcoal);font-size:.93rem;line-height:1.7}
+@media(hover:hover) and (pointer:fine){.process-steps li:hover{transform:translateY(-5px);border-color:#e6ad75;box-shadow:0 16px 34px rgba(37,37,37,.1)}.process-steps li:hover::before{width:72px}.process-steps li:hover .process-step-number{background:var(--ink);color:#fff}}
+@media(max-width:800px){.process-steps{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:650px){.process-steps{gap:16px;margin-top:28px}.process-steps li{min-height:0;padding:24px;gap:16px}.process-steps li::before{left:24px}.process-step-number{flex-basis:42px;height:42px}}
+@media(prefers-reduced-motion:reduce){.process-steps li,.process-steps li::before,.process-step-number{transition:none}.process-steps li:hover{transform:none}}
+
+/* Contact quote checklist as one two-column table. */
+.quote-checklist-table{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:32px;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(37,37,37,.055)}
+.quote-checklist-group{min-width:0}
+.quote-checklist-group+.quote-checklist-group{border-left:1px solid #e7ddd2}
+.quote-checklist-group h3{display:flex;align-items:center;min-height:62px;margin:0;padding:18px 26px;background:linear-gradient(115deg,#bc5700,#d26808);color:#fff;font-size:1rem;font-weight:800;letter-spacing:.01em;line-height:1.3}
+.quote-checklist-group+.quote-checklist-group h3{border-left:1px solid rgba(255,255,255,.22)}
+.quote-checklist-group ul{margin:0;padding:0;list-style:none}
+.quote-checklist-group li{position:relative;display:flex;align-items:center;min-height:66px;padding:16px 24px 16px 48px;border-bottom:1px solid #ece7e1;font-size:.95rem;font-weight:600;line-height:1.5;transition:background-color .18s ease}
+.quote-checklist-group li:last-child{border-bottom:0}
+.quote-checklist-group li::before{content:'';position:absolute;left:26px;top:50%;width:7px;height:7px;border-radius:50%;background:var(--orange-dark);transform:translateY(-50%)}
+@media(hover:hover) and (pointer:fine){.quote-checklist-group li:hover{background:#fff3e6}}
+@media(max-width:650px){.quote-checklist-table{grid-template-columns:minmax(0,1fr);margin-top:26px}.quote-checklist-group+.quote-checklist-group{border-left:0;border-top:1px solid var(--line)}.quote-checklist-group+.quote-checklist-group h3{border-left:0}.quote-checklist-group h3{min-height:56px;padding:15px 20px}.quote-checklist-group li{min-height:60px;padding:14px 18px 14px 40px}.quote-checklist-group li::before{left:20px}}
+@media(prefers-reduced-motion:reduce){.quote-checklist-group li{transition:none}}
