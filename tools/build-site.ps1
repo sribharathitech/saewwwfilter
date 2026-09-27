@@ -2,7 +2,7 @@
 
 $Root = Split-Path -Parent $PSScriptRoot
 $Base = 'https://filter.sribharathi.com'
-$SiteLastModified = '2026-08-29'
+$SiteLastModified = '2026-09-27'
 $Orange = '#f57700'
 $HeaderTemplate = [System.IO.File]::ReadAllText((Join-Path $Root 'partials/header.html'))
 $FooterTemplate = [System.IO.File]::ReadAllText((Join-Path $Root 'partials/footer.html'))
@@ -153,6 +153,15 @@ function New-Page {
     if ($Path -eq '/') { $depth = 0 }
     $prefix = if ($depth -eq 0) { './' } else { ('../' * $depth) }
     $canonical = if ($Path -eq '/') { "$Base/" } else { "$Base$Path" }
+    $productPaths = @(
+        '/filter-pads/sparkler-filter-pads.html', '/filter-pads/pulp-filter-pads.html',
+        '/filter-pads/activated-carbon-filter-pads.html', '/filter-pads/high-temperature-filter-pads.html',
+        '/filter-papers/', '/filter-cartridges/pp-pleated-filter-cartridges.html',
+        '/filter-cartridges/ptfe-membrane-filter-cartridges.html', '/filter-cartridges/spun-bonded-filter-cartridges.html',
+        '/filter-cartridges/wound-filter-cartridges.html', '/filter-cartridges/stainless-steel-filter-cartridges.html',
+        '/filter-cartridges/dust-collection-filter-cartridges.html', '/lenticular-filters/'
+    )
+    if ($Path -in $productPaths) { $SchemaType = 'Product' }
     if ($Crumbs.Count -gt 0 -and $Crumbs[0] -is [string]) {
         $pairedCrumbs = @()
         for ($i = 0; $i -lt $Crumbs.Count; $i += 2) { $pairedCrumbs += ,@($Crumbs[$i], $Crumbs[$i + 1]) }
@@ -194,6 +203,29 @@ function New-Page {
         $safeName = Escape-Json $SchemaName
         $safeDescription = Escape-Json $Description
         $pageSchema = ", {`"@type`":`"Article`",`"headline`":`"$safeName`",`"description`":`"$safeDescription`",`"author`":{`"@id`":`"$Base/#organization`"},`"publisher`":{`"@id`":`"$Base/#organization`"},`"mainEntityOfPage`":`"$canonical`"}"
+    } elseif ($SchemaType -eq 'Product') {
+        $safeName = Escape-Json $SchemaName
+        $safeDescription = Escape-Json $Description
+        $pageSchema = ", {`"@type`":`"Product`",`"@id`":`"$canonical#product`",`"name`":`"$safeName`",`"description`":`"$safeDescription`",`"url`":`"$canonical`",`"brand`":{`"@type`":`"Brand`",`"name`":`"Sri Bharathi`"},`"manufacturer`":{`"@id`":`"$Base/#organization`"},`"category`":`"Industrial filtration media`"}"
+    }
+
+    $faqMatches = [regex]::Matches($Body, '<details><summary>(.*?)</summary><p>(.*?)</p></details>', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+    if ($faqMatches.Count -gt 0) {
+        $faqItems = @()
+        foreach ($match in $faqMatches) {
+            $question = Escape-Json ([System.Net.WebUtility]::HtmlDecode(($match.Groups[1].Value -replace '<[^>]+>', '')))
+            $answer = Escape-Json ([System.Net.WebUtility]::HtmlDecode(($match.Groups[2].Value -replace '<[^>]+>', '')))
+            $faqItems += "{`"@type`":`"Question`",`"name`":`"$question`",`"acceptedAnswer`":{`"@type`":`"Answer`",`"text`":`"$answer`"}}"
+        }
+        $pageSchema += ", {`"@type`":`"FAQPage`",`"mainEntity`":[$($faqItems -join ',')]}"
+    }
+
+    $openGraphType = if ($SchemaType -eq 'Product') { 'product' } else { 'website' }
+    $commercialContext = ''
+    if ($SchemaType -eq 'Product') {
+        $commercialContext = "<p class=`"commercial-context`">Sri Bharathi Tech manufactures and supplies $SchemaName from Ankleshwar, Gujarat, India, with grade, size and configuration selection based on the buyer&rsquo;s process and equipment.</p>"
+    } elseif ($Path -eq '/filter-cartridges/') {
+        $commercialContext = '<p class="commercial-context">Sri Bharathi Tech is an industrial filter cartridge manufacturer and supplier in Ankleshwar, Gujarat, India, supporting standard and application-specific configurations for process buyers.</p>'
     }
 
     $html = @"
@@ -211,7 +243,7 @@ function New-Page {
   <link rel="canonical" href="$canonical">
   <link rel="icon" type="image/png" href="${prefix}assets/favicon.png">
   <link rel="stylesheet" href="${prefix}assets/styles.css">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="$openGraphType">
   <meta property="og:title" content="$Title">
   <meta property="og:description" content="$Description">
   <meta property="og:url" content="$canonical">
@@ -232,7 +264,7 @@ function New-Page {
     <div class="shell breadcrumbs" aria-label="Breadcrumb"><ol>$crumbHtml</ol></div>
     <section class="page-hero $HeroClass">
       <div class="shell hero-grid">
-        <div><p class="eyebrow">$Eyebrow</p><h1>$H1</h1><p class="lede">$Intro</p></div>
+        <div><p class="eyebrow">$Eyebrow</p><h1>$H1</h1><p class="lede">$Intro</p>$commercialContext</div>
         $heroMedia
       </div>
     </section>
