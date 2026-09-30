@@ -52,12 +52,12 @@ $GalleryAssets = @{
     )
 }
 $FeatureAssets = @{
-    '/filter-pads/' = @{src='/assets/images/marketing/filter-pads-overview.jpg'; alt='Stacked white industrial filter pads with a product-family overview'; caption='Filter-pad family overview. Alpha-cellulose purity and temperature suitability require grade-specific written confirmation.'}
-    '/filter-pads/activated-carbon-filter-pads.html' = @{src='/assets/images/marketing/activated-carbon-pads-overview.jpg'; alt='Activated carbon filter pads with adsorption, wet-strength and application overview'; caption='Activated carbon pad overview. Adsorption results depend on the fluid, contact time, operating conditions and selected grade.'}
-    '/filter-cartridges/' = @{src='/assets/images/marketing/filter-cartridges-overview.jpg'; alt='Illustrated range of pleated, spun-bonded, wound and stainless-steel filter cartridges'; caption='Sri Bharathi filter-cartridge family overview. Confirm the construction, dimensions and compatibility for the intended duty.'}
+    '/filter-pads/' = @{src='/assets/images/marketing/filter-pads-overview.png'; alt='Stacked white industrial filter pads with a product-family overview'; caption='Filter-pad family overview. Alpha-cellulose purity and temperature suitability require grade-specific written confirmation.'}
+    '/filter-pads/activated-carbon-filter-pads.html' = @{src='/assets/images/marketing/activated-carbon-pads-overview.png'; alt='Activated carbon filter pads with adsorption, wet-strength and application overview'; caption='Activated carbon pad overview. Adsorption results depend on the fluid, contact time, operating conditions and selected grade.'}
+    '/filter-cartridges/' = @{src='/assets/images/marketing/filter-cartridges-overview.png'; alt='Illustrated range of pleated, spun-bonded, wound and stainless-steel filter cartridges'; caption='Sri Bharathi filter-cartridge family overview. Confirm the construction, dimensions and compatibility for the intended duty.'}
     '/filter-cartridges/ptfe-membrane-filter-cartridges.html' = @{src='/assets/images/marketing/ptfe-membrane-cartridges-overview.png'; alt='PTFE membrane filter cartridges with filtration efficiency, chemical compatibility, process stability and application highlights'; caption='Sri Bharathi PTFE membrane filter-cartridge overview. Final media grade, seal, dimensions and operating limits are confirmed for the quoted configuration.'}
-    '/lenticular-filters/' = @{src='/assets/images/marketing/lenticular-filter-overview.jpg'; alt='Lenticular filter modules and stainless-steel housings with a product overview'; caption='Lenticular filter system overview. Final module, housing and operating specifications are application-specific.'}
-    '/about/' = @{src='/assets/images/marketing/manufacturing-overview.jpg'; alt='Illustrative filter-media manufacturing line with quality and capacity overview'; caption='Sri Bharathi filtration-media manufacturing capability.'}
+    '/lenticular-filters/' = @{src='/assets/images/marketing/lenticular-filter-overview.png'; alt='Lenticular filter modules and stainless-steel housings with a product overview'; caption='Lenticular filter system overview. Final module, housing and operating specifications are application-specific.'}
+    '/about/' = @{src='/assets/images/marketing/manufacturing-overview.png'; alt='Illustrative filter-media manufacturing line with quality and capacity overview'; caption='Sri Bharathi filtration-media manufacturing capability.'}
 }
 
 function Ensure-Dir([string]$Path) {
@@ -242,7 +242,7 @@ function New-Page {
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="$canonical">
   <link rel="icon" type="image/png" href="${prefix}assets/favicon.png">
-  <link rel="stylesheet" href="${prefix}assets/styles.css">
+  <link rel="stylesheet" href="${prefix}assets/styles.css?v=20260930-2">
   <meta property="og:type" content="$openGraphType">
   <meta property="og:title" content="$Title">
   <meta property="og:description" content="$Description">
@@ -399,6 +399,7 @@ $css += @'
 @media(hover:hover) and (pointer:fine){.quote-checklist-group li:hover{background:#fff3e6}}
 @media(max-width:650px){.quote-checklist-table{grid-template-columns:minmax(0,1fr);margin-top:26px}.quote-checklist-group+.quote-checklist-group{border-left:0;border-top:1px solid var(--line)}.quote-checklist-group+.quote-checklist-group h3{border-left:0}.quote-checklist-group h3{min-height:56px;padding:15px 20px}.quote-checklist-group li{min-height:60px;padding:14px 18px 14px 40px}.quote-checklist-group li::before{left:20px}}
 @media(prefers-reduced-motion:reduce){.quote-checklist-group li{transition:none}}
+.visual-showcase figure{display:grid;grid-template-columns:minmax(0,1fr)}.visual-showcase img{grid-area:1/1}.visual-showcase figcaption{grid-row:2;padding-right:18px}.visual-showcase figure::after{content:'© SRI BHARATHI';position:relative;grid-area:1/1;align-self:end;justify-self:end;top:auto;right:auto;bottom:auto;left:auto;margin:12px;padding:5px 8px;background:rgba(32,32,32,.72);color:#fff;font-size:.62rem;font-weight:900;line-height:1;letter-spacing:.09em;pointer-events:none}@media(max-width:650px){.visual-showcase figure::after{margin:9px}}
 '@
 Write-Utf8 (Join-Path $Root 'assets/styles.css') $css
 
