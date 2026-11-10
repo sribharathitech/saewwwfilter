@@ -271,7 +271,7 @@ function New-Page {
     $Body
   </main>
   $footerHtml
-  <script src="${prefix}assets/site.js" defer></script>
+  <script src="${prefix}assets/site.js?v=20261110-menus" defer></script>
 </body>
 </html>
 "@
@@ -439,6 +439,11 @@ main .related-links{gap:12px}
 main .card>.site-action{margin-top:auto}
 @media(max-width:650px){main .cta .site-action{flex-shrink:1}}
 @media(prefers-reduced-motion:reduce){main .site-action{transition:none}}
+'@
+$css += @'
+
+/* Keep the rightmost dropdown inside the viewport. */
+@media(min-width:651px){#resources-menu{left:auto;right:0}}
 '@
 Write-Utf8 (Join-Path $Root 'assets/styles.css') $css
 

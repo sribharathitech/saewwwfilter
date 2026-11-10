@@ -144,3 +144,6 @@ main .related-links{gap:12px}
 main .card>.site-action{margin-top:auto}
 @media(max-width:650px){main .cta .site-action{flex-shrink:1}}
 @media(prefers-reduced-motion:reduce){main .site-action{transition:none}}
+
+/* Keep the rightmost dropdown inside the viewport. */
+@media(min-width:651px){#resources-menu{left:auto;right:0}}

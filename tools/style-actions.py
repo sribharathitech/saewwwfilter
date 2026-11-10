@@ -51,7 +51,7 @@ def style_pages():
         if 'http-equiv="refresh"' in source:continue
         parser=Actions(source);parser.feed(source)
         for start,end,value in reversed(parser.edits):source=source[:start]+value+source[end:]
-        source=re.sub(r'(href="[^\"]*assets/styles\.css)(?:\?[^\"]*)?"',r'\1?v=20261110-site-actions"',source)
+        source=re.sub(r'(href="[^\"]*assets/styles\.css)(?:\?[^\"]*)?"',r'\1?v=20261110-menus"',source)
         if source!=path.read_text(encoding="utf-8"):path.write_text(source,encoding="utf-8",newline="\n")
         count+=len(parser.edits)
     print(f"Styled {count} website actions")

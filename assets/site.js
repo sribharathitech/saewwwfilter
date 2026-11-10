@@ -88,7 +88,8 @@
     menu.addEventListener('mouseleave', () => {
       if (finePointer.matches) setOpen(menu, false);
     });
-    menu.addEventListener('focusin', () => {
+    menu.addEventListener('focusin', event => {
+      if (event.target === toggle) return;
       closeAll(menu);
       setOpen(menu, true);
     });
