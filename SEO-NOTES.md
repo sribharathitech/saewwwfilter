@@ -25,6 +25,15 @@
 - Product hubs link to every child landing page; every child links back into relevant applications and adjacent filtration stages.
 - Quality and certification pages are linked from the homepage, about page and resources.
 
+## Sitemap and document library maintenance
+
+- `/resources/#catalogues-presentations` is the central library for all four published PDFs, with links from relevant product pages.
+- Resources titles and descriptions cover both downloadable catalogues and technical guides.
+- `sitemap.xml` includes canonical HTML pages and all published PDFs in `assets/documents/`; redirect pages, error pages, templates and URL fragments are excluded.
+- Run `python tools/refresh-seo-artifacts.py` after page or document updates. The site build also runs this step automatically.
+- Last-modified dates use each file's latest Git commit date in Asia/Calcutta; files with pending edits use the current date. Unchanged files retain their dates on repeated refreshes.
+- `robots.txt` already points to the canonical sitemap. Existing legacy redirects remain valid.
+
 ## Content opportunities
 
 - Publish grade-specific technical data sheets once approved, including test methods and tolerances.

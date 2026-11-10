@@ -2,7 +2,6 @@
 
 $Root = Split-Path -Parent $PSScriptRoot
 $Base = 'https://filter.sribharathi.com'
-$SiteLastModified = '2026-09-27'
 $Orange = '#f57700'
 $HeaderTemplate = [System.IO.File]::ReadAllText((Join-Path $Root 'partials/header.html'))
 $FooterTemplate = [System.IO.File]::ReadAllText((Join-Path $Root 'partials/footer.html'))
@@ -679,7 +678,7 @@ $(Section 'Selection tools' 'Use the right technical landing page' (Cards -Items
 )))
 $(CTA 'Turn your operating data into a focused trial' 'Send the checklist with a current media sample, drawing or recent batch trend if available. This helps identify practical candidates based on relevant process data.')
 "@
-New-Page '/resources/' 'Industrial Filtration Resources | Sri Bharathi' 'Technical resources on depth filtration, filter pad selection, cartridge comparison, gelatin clarification and building a complete filter enquiry.' 'Industrial Filtration Resources' 'Engineering knowledge' 'Practical notes for engineers, purchase managers and plant teams evaluating depth pads, papers, cartridges and clarification systems.' $resourcesBody @(@('Home','/'),@('Resources','/resources/')) 'Article' 'Industrial Filtration Resources' -HeroClass 'page-hero-refined page-hero-four-three' -HideHeroCaption
+New-Page '/resources/' 'Filtration Catalogues & Technical Resources | Sri Bharathi' 'Download Sri Bharathi filtration catalogues and product presentations, and explore technical guides on filter pads, cartridges, depth filtration and selection.' 'Industrial Filtration Resources' 'Engineering knowledge' 'Practical notes for engineers, purchase managers and plant teams evaluating depth pads, papers, cartridges and clarification systems.' $resourcesBody @(@('Home','/'),@('Resources','/resources/')) 'Article' 'Industrial Filtration Resources' -HeroClass 'page-hero-refined page-hero-four-three' -HideHeroCaption
 
 $contactBody = @"
 <section class="section"><div class="shell"><p class="eyebrow">Our locations</p><h2>Two locations, one filtration team</h2><p class="section-intro">Contact the location most convenient for you, or reach the filtration team directly by phone or email.</p><div class="contact-location-grid"><article class="location-card"><h3>Ankleshwar</h3><address>S-215, Plot No.3002/F/1<br>Multilevel Shed, Kanoriya Chokdi, GIDC<br>Ankleshwar, Gujarat 393002</address></article><article class="location-card"><h3>Coimbatore</h3><address>Sri Murugan Towers, 02, Trichy Road<br>Coimbatore, Tamilnadu 641018</address></article></div></div></section>
@@ -709,13 +708,6 @@ foreach ($old in $redirects.Keys) {
     Write-Utf8 (Join-Path $Root $redirectPath) $redirectHtml
 }
 
-$indexable = @(
-'/', '/about/', '/resources/quality.html', '/resources/certifications.html', '/filter-pads/', '/filter-pads/sparkler-filter-pads.html', '/filter-pads/pulp-filter-pads.html', '/filter-pads/activated-carbon-filter-pads.html', '/filter-pads/high-temperature-filter-pads.html', '/filter-papers/', '/filter-cartridges/', '/filter-cartridges/pp-pleated-filter-cartridges.html', '/filter-cartridges/ptfe-membrane-filter-cartridges.html', '/filter-cartridges/spun-bonded-filter-cartridges.html', '/filter-cartridges/wound-filter-cartridges.html', '/filter-cartridges/stainless-steel-filter-cartridges.html', '/filter-cartridges/dust-collection-filter-cartridges.html', '/lenticular-filters/', '/applications/', '/applications/gelatin-filtration.html', '/applications/pharmaceutical-filtration.html', '/applications/chemical-filtration.html', '/applications/food-beverage-filtration.html', '/applications/edible-oil-filtration.html', '/resources/', '/contact/'
-)
-$urls = ($indexable | ForEach-Object {
-    "  <url><loc>$Base$_</loc><lastmod>$SiteLastModified</lastmod></url>"
-}) -join "`n"
-Write-Utf8 (Join-Path $Root 'sitemap.xml') "<?xml version=`"1.0`" encoding=`"UTF-8`"?>`n<urlset xmlns=`"http://www.sitemaps.org/schemas/sitemap/0.9`">`n$urls`n</urlset>`n"
 Write-Utf8 (Join-Path $Root 'robots.txt') "User-agent: *`nAllow: /`n`nSitemap: $Base/sitemap.xml`n"
 
 $mapLines = @('# Legacy URL migration map', '# GitHub Pages has no server-side redirects. Matching legacy paths contain noindex meta-refresh pages.', '')
@@ -749,6 +741,15 @@ $seo = @'
 - Activated carbon pads link to chemical filtration, food and beverage filtration, pulp pads and PP polishing cartridges.
 - Product hubs link to every child landing page; every child links back into relevant applications and adjacent filtration stages.
 - Quality and certification pages are linked from the homepage, about page and resources.
+
+## Sitemap and document library maintenance
+
+- `/resources/#catalogues-presentations` is the central library for all four published PDFs, with links from relevant product pages.
+- Resources titles and descriptions cover both downloadable catalogues and technical guides.
+- `sitemap.xml` includes canonical HTML pages and all published PDFs in `assets/documents/`; redirect pages, error pages, templates and URL fragments are excluded.
+- Run `python tools/refresh-seo-artifacts.py` after page or document updates. The site build also runs this step automatically.
+- Last-modified dates use each file's latest Git commit date in Asia/Calcutta; files with pending edits use the current date. Unchanged files retain their dates on repeated refreshes.
+- `robots.txt` already points to the canonical sitemap. Existing legacy redirects remain valid.
 
 ## Content opportunities
 
@@ -786,8 +787,12 @@ $seo = @'
 '@
 Write-Utf8 (Join-Path $Root 'SEO-NOTES.md') $seo
 
-Write-Host "Built $($indexable.Count) indexable pages plus legacy redirects."
+Write-Host "Built canonical pages plus legacy redirects."
 
 # Apply shared action markup after all pages have been generated.
 python (Join-Path $PSScriptRoot "style-actions.py")
 if ($LASTEXITCODE -ne 0) { throw "Website action styling failed." }
+
+# Discover canonical URLs and PDF assets instead of maintaining a fixed sitemap list.
+python (Join-Path $PSScriptRoot "refresh-seo-artifacts.py")
+if ($LASTEXITCODE -ne 0) { throw "SEO artifact refresh failed." }
