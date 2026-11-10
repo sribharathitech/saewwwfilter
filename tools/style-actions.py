@@ -43,6 +43,19 @@ class Actions(HTMLParser):
         for i in range(len(self.stack)-1,-1,-1):
             if self.stack[i][0]==tag:self.stack=self.stack[:i];break
 
+def capitalize_action_labels(source):
+    """Capitalize standalone actions, preserving markup, entities and abbreviations."""
+    def update(match):
+        opening, content, closing = match.groups()
+        if not re.search(r'class=[\"\x27][^\"\x27]*\bsite-action\b', opening):
+            return match.group(0)
+        # Only change text nodes; keep SVG attributes and link destinations intact.
+        pieces = re.split(r'(<[^>]+>|&[A-Za-z0-9#]+;)', content)
+        for index in range(0, len(pieces), 2):
+            pieces[index] = re.sub(r'(^|[\s(\-])([a-z])', lambda word: word[1] + word[2].upper(), pieces[index])
+        return opening + ''.join(pieces) + closing
+    return re.sub(r'(<a\b[^>]*>)(.*?)(</a>)', update, source, flags=re.S)
+
 def style_pages():
     count=0
     for path in ROOT.rglob("*.html"):
@@ -51,6 +64,7 @@ def style_pages():
         if 'http-equiv="refresh"' in source:continue
         parser=Actions(source);parser.feed(source)
         for start,end,value in reversed(parser.edits):source=source[:start]+value+source[end:]
+        source=capitalize_action_labels(source)
         source=re.sub(r'(href="[^\"]*assets/styles\.css)(?:\?[^\"]*)?"',r'\1?v=20261110-depth-guide"',source)
         if source!=path.read_text(encoding="utf-8"):path.write_text(source,encoding="utf-8",newline="\n")
         count+=len(parser.edits)
