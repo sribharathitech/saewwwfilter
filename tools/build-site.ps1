@@ -242,7 +242,7 @@ function New-Page {
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="$canonical">
   <link rel="icon" type="image/png" href="${prefix}assets/favicon.png">
-  <link rel="stylesheet" href="${prefix}assets/styles.css?v=20260930-2">
+  <link rel="stylesheet" href="${prefix}assets/styles.css?v=20261110-library">
   <meta property="og:type" content="$openGraphType">
   <meta property="og:title" content="$Title">
   <meta property="og:description" content="$Description">
@@ -402,6 +402,15 @@ $css += @'
 .visual-showcase figure{display:grid;grid-template-columns:minmax(0,1fr)}.visual-showcase img{grid-area:1/1}.visual-showcase figcaption{grid-row:2;padding-right:18px}.visual-showcase figure::after{content:'© SRI BHARATHI';position:relative;grid-area:1/1;align-self:end;justify-self:end;top:auto;right:auto;bottom:auto;left:auto;margin:12px;padding:5px 8px;background:rgba(32,32,32,.72);color:#fff;font-size:.62rem;font-weight:900;line-height:1;letter-spacing:.09em;pointer-events:none}@media(max-width:650px){.visual-showcase figure::after{margin:9px}}
 .product-visual::after,.visual-showcase figure::after,.media-gallery figure::after{content:'\00A9  SRI BHARATHI';position:absolute;top:auto;right:14px;bottom:14px;left:auto;margin:0;padding:7px 11px 7px 12px;background:rgba(255,255,255,.94);border:1px solid rgba(111,100,88,.16);border-left:4px solid var(--orange);color:#292929;box-shadow:0 7px 22px rgba(24,24,24,.12);font-size:.64rem;font-weight:900;line-height:1;letter-spacing:.085em;white-space:nowrap;pointer-events:none;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
 @media(max-width:650px){.product-visual::after,.visual-showcase figure::after,.media-gallery figure::after{right:9px;bottom:9px;padding:6px 9px 6px 10px;font-size:.58rem}}
+'@
+$css += @'
+
+/* Balanced document library: four on desktop, two on tablet, one on mobile. */
+#catalogues-presentations .card-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+#catalogues-presentations .card{display:flex;flex-direction:column}
+#catalogues-presentations .card p:nth-last-child(2){margin-top:auto;padding-top:10px}
+@media(max-width:1100px){#catalogues-presentations .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){#catalogues-presentations .card-grid{grid-template-columns:minmax(0,1fr)}}
 '@
 Write-Utf8 (Join-Path $Root 'assets/styles.css') $css
 

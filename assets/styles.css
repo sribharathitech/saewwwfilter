@@ -112,3 +112,10 @@
 .quality-assurance-callout p:last-child{margin:0;color:var(--ink);line-height:1.7}
 .quality-assurance-callout strong{font-weight:800}
 @media(max-width:650px){.quality-assurance-callout{grid-template-columns:minmax(0,1fr);gap:16px;margin-top:28px;padding:25px 24px 26px 29px}.quality-assurance-icon{width:46px;height:46px;border-radius:13px;font-size:1.3rem}}
+
+/* Balanced document library: four on desktop, two on tablet, one on mobile. */
+#catalogues-presentations .card-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+#catalogues-presentations .card{display:flex;flex-direction:column}
+#catalogues-presentations .card p:nth-last-child(2){margin-top:auto;padding-top:10px}
+@media(max-width:1100px){#catalogues-presentations .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){#catalogues-presentations .card-grid{grid-template-columns:minmax(0,1fr)}}
