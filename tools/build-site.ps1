@@ -424,6 +424,23 @@ $css += @'
 #catalogues-presentations .card a:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){#catalogues-presentations .card a{transition:none}}
 '@
+$css += @'
+
+/* Shared content actions. Navigation and inline prose links keep their existing treatment. */
+main .site-action{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;max-width:100%;min-height:46px;padding:11px 15px;border:1px solid #d9d4ce;border-radius:10px;background:#fff;color:var(--ink);font-family:var(--font-sans);font-size:.88rem;font-weight:650;line-height:1.35;text-decoration:none;white-space:normal;vertical-align:middle;transition:background .18s,border-color .18s,box-shadow .18s}
+main .site-action span{min-width:0;overflow-wrap:anywhere}
+main .site-action svg{width:18px;height:18px;flex:0 0 18px}
+main .site-action.action-primary{background:var(--orange);border-color:var(--orange);color:#252525;box-shadow:0 4px 12px rgba(245,119,0,.13)}
+main .site-action:hover{background:#fff3e6;border-color:var(--orange);text-decoration:none}
+main .site-action.action-primary:hover{background:#ff921f;border-color:#ff921f;box-shadow:0 5px 16px rgba(245,119,0,.23)}
+main .site-action:focus-visible{outline:3px solid var(--ink);outline-offset:4px;border-radius:10px}
+main .cta .site-action:focus-visible{outline-color:#fff}
+main .cta .site-action{flex-shrink:0}
+main .related-links{gap:12px}
+main .card>.site-action{margin-top:auto}
+@media(max-width:650px){main .cta .site-action{flex-shrink:1}}
+@media(prefers-reduced-motion:reduce){main .site-action{transition:none}}
+'@
 Write-Utf8 (Join-Path $Root 'assets/styles.css') $css
 
 # Home
@@ -770,3 +787,7 @@ $seo = @'
 Write-Utf8 (Join-Path $Root 'SEO-NOTES.md') $seo
 
 Write-Host "Built $($indexable.Count) indexable pages plus legacy redirects."
+
+# Apply shared action markup after all pages have been generated.
+python (Join-Path $PSScriptRoot "style-actions.py")
+if ($LASTEXITCODE -ne 0) { throw "Website action styling failed." }
